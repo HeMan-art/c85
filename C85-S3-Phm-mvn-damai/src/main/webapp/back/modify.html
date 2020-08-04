@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>编辑商品信息</title>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/axios.min.js"></script>
+<style type="text/css">
+label{
+display:inline-block;
+width:200px;
+text-align:right;
+}
+</style>
+</head>
+<body>
+<div id="app">
+<label>编号</label><input v-model="book.id"><br>
+<label>书名</label><input v-model="book.bookname"><br>
+<label>出版社</label><input v-model="book.press"><br>
+<label>出版日期</label><input v-model="book.pressdate"><br>
+<label>作者</label><input v-model="book.bookauthor"><br>
+<label>库存</label><input v-model="book.bookcount"><br>
+<label></label><button @click="save">保存</button>
+</div>
+<script type="text/javascript">
+var vue=new Vue({
+	el:"#app",
+	data:{
+		book:{},
+	},
+	created:function(){
+		//js BOM 地址对象
+		var id=location.hash.substring(1);
+		axios({
+			url:"../getbook.do",
+			params:{
+				id:id
+			}
+		}).then(res=>{
+			//axios 方法会自动转json对象
+			this.book=res.data;
+		});
+	},
+	methods:{
+		save(){
+			axios({
+				url:"../savebook.do",
+				params:this.book
+			}).then(res=>{
+				alert(res.data);
+			});
+		}
+		
+	}
+});
+</script>
+</body>
+</html>

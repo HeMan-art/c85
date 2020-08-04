@@ -1,0 +1,50 @@
+<script type="text/javascript">
+	var vue=new Vue({
+		el:"#fenleis",
+		data:{
+			Fenlei:[]
+		},
+	    created:function(){axios.get("product.do?os=fenlei")
+			.then((res)=>{
+					console.info(res.data.list)
+					this.Fenlei=res.data.list;
+				});
+		},
+		
+	});
+
+	</script>
+<script type="text/javascript">
+	var vue=new Vue({
+		el:"#result",
+		data:{
+			Product:[]
+		},
+		created:function(){
+	        var id=location.hash.substring(1);
+			axios({
+				url:"product.do?os=products",
+				params:{
+					id:id
+				}
+			}).then(res=>{
+				console.info(res.data)
+				this.Product=res.data;
+		});
+	   },
+	
+	});
+
+	</script>
+	 <em id="effectivePoint">{{carts.shop_price}}</em>
+					商品金额: <strong id="effectivePrice">{{carts.shop_price}}</strong>
+					
+					<div class="total">
+					<em id="promotion"></em>
+							<em>
+								登录后确认是否享有优惠
+							</em>	
+					赠送积分: <span >{{carts.shop_price}}</span>
+					商品金额: <span >{{carts.shop_price}}</span>
+				</div>
+					
