@@ -18,7 +18,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.yc.web.Dao.ProductDao;
-import com.yc.web.been.DmProduct;
+import com.yc.web.bean.DmProduct;
 import com.yc.web.util.VerifyCodeUtils;
 import com.yc.web.util.DBHelper;
 

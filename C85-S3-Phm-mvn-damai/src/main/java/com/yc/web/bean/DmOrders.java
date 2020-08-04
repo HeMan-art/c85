@@ -1,4 +1,4 @@
-package com.yc.web.been;
+package com.yc.web.bean;
 
 import java.sql.Timestamp;
 

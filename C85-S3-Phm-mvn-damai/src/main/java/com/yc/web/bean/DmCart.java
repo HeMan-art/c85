@@ -1,4 +1,4 @@
-package com.yc.web.been;
+package com.yc.web.bean;
 
 public class DmCart {
     private Integer id;

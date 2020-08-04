@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.yc.web.been.DmProduct;
+import com.yc.web.bean.DmProduct;
 import com.yc.web.util.DBHelper;
 
 public class ProductDao {
