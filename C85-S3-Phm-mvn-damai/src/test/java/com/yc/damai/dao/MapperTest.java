@@ -13,6 +13,7 @@ import org.junit.Test;
 
 import com.yc.web.Dao.DmCategoryMapper;
 import com.yc.web.Dao.DmOrderitemMapper;
+import com.yc.web.Dao.DmProductMapper;
 import com.yc.web.bean.DmCategory;
 import com.yc.web.bean.DmOrderitem;
 import com.yc.web.bean.DmProduct;
@@ -119,5 +120,74 @@ public class MapperTest {
 		System.out.println(dp);
 		session.close();
 	}
-
+	
+	@Test
+	public void test6() throws IOException {
+		DmCategoryMapper mapper = session.getMapper(DmCategoryMapper.class);
+		List<DmCategory> dcList = mapper.selectAll();
+		System.out.println("===============1================");
+		DmCategory dc = dcList.get(1);
+		System.out.println("===============2================");
+		Assert.assertEquals("鞋靴箱包", dc.getCname());
+		System.out.println("================3================");
+		Assert.assertEquals(6, dc.getChildren().size());
+		System.out.println("================4================");
+	}
+	
+	@Test
+	public void test7() throws IOException {
+		DmProductMapper mapper= session.getMapper(DmProductMapper.class);
+		System.out.println("=================================");
+		mapper.selectByObj(null);
+		DmProduct dp = new DmProduct();
+		System.out.println("===================================");
+		mapper.selectByObj(dp);
+		
+		dp.setPname("测试");
+		System.out.println("===================================");
+		mapper.selectByObj(dp);
+		
+		dp.setPdesc("测试描述");
+		System.out.println("===================================");
+		mapper.selectByObj(dp);
+		
+		dp.setIsHot(-1);
+		System.out.println("===================================");
+		mapper.selectByObj(dp);
+		
+		dp.setIsHot(1);
+		System.out.println("===================================");
+		mapper.selectByObj(dp);
+		
+	}
+	
+	public void test8() throws IOException {
+		DmProductMapper mapper= session.getMapper(DmProductMapper.class);
+        int[] cids = {1,2,3};
+        mapper.selectByCids(cids);
+	}
+	
+	public void test9() throws IOException {
+		DmProductMapper mapper= session.getMapper(DmProductMapper.class);
+		DmProduct dp = new DmProduct();
+		dp.setId(1);
+		dp.setMarketPrice(885d);
+		
+		mapper.update(dp);
+		//
+		DmProduct dbdp = mapper.selectById(1);
+		
+		Assert.assertEquals((Double)885d,dbdp.getMarketPrice());
+		Assert.assertEquals((Double)228d,dbdp.getShopPrice());
+		Assert.assertEquals("韩版连帽加厚毛衣外套",dbdp.getPname());
+		
+		
+		/**
+		 * 解决方案
+		 * 1.在update之前先将数据库中该记录的值全部查询出来，设置到db中
+		 *      每次修改都是更新所有字段
+		 * 2.动态生成更新sql，只更新不为null
+		 */
+		
+	}
 }

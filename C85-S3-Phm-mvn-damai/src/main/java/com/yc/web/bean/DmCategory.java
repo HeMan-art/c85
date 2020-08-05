@@ -1,11 +1,24 @@
 package com.yc.web.bean;
 
+import java.util.List;
+
 public class DmCategory {
     private Integer id;
 
     private String cname;
 
     private Integer pid;
+    
+    private List<DmCategory> children;
+    
+    public List<DmCategory> getChildren(){
+    	return children;
+    }
+    
+    public void setChildren(List<DmCategory> children) {
+    	this.children = children;
+    }
+    
 
     public Integer getId() {
         return id;
@@ -30,4 +43,6 @@ public class DmCategory {
     public void setPid(Integer pid) {
         this.pid = pid;
     }
+
+
 }
