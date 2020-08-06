@@ -16,7 +16,7 @@
 			<!-- type="POOLED" 数据源类型: 连接池  -->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s2-ply-damai" />
+				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s3-Phm-favorite" />
 				<property name="username" value="root" />
 				<property name="password" value="a" />
 			</dataSource>
@@ -58,10 +58,9 @@
 		注册接口
 	 -->
 	<mappers>
-		<mapper resource="com/yc/damai/dao/ProductMapper.xml" />
-		<mapper resource="com/yc/damai/dao/CategoryMapper.xml" />
-		<mapper resource="com/yc/damai/dao/OrderitemMapper.xml" />
-		<mapper resource="com/yc/damai/dao/OrdersMapper.xml" />
+	
+	<package name="com.yc.favorite.dao"/>
+		
 	</mappers>
 	
 	
