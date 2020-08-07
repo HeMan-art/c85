@@ -29,7 +29,7 @@
 			<!-- type="POOLED" 数据源类型: 连接池  -->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s2-ply-damai" />
+				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s3-Phm-favorite" />
 				<property name="username" value="root" />
 				<property name="password" value="a" />
 			</dataSource>
@@ -42,7 +42,7 @@
 			<!-- type="POOLED" 数据源类型: 连接池  -->
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver" />
-				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s2-ply-damai" />
+				<property name="url" value="jdbc:mysql://127.0.0.1/c85-s3-Phm-favorite" />
 				<property name="username" value="root" />
 				<property name="password" value="a" />
 			</dataSource>
@@ -59,7 +59,12 @@
 	 -->
 	<mappers>
 	
-	<package name="com.yc.favorite.dao"/>
+	<mapper resource="com/yc/favorite/dao/FavoriteMapper.xml"/>
+	<mapper class="com.yc.favorite.dao.TagFavoriteMapper"/>
+	<mapper class="com.yc.favorite.dao.TagMapper"/>
+	
+	<!-- <package name="com.yc.favorite.dao"/> -->
+	
 		
 	</mappers>
 	
