@@ -1,7 +1,11 @@
 package com.yc.spring.bank.biz;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.yc.spring.bank.dao.AccountDao;
 import com.yc.spring.bank.dao.OprecordDao;
@@ -14,6 +18,7 @@ import com.yc.spring.bank.dao.OprecordDao;
  *	查询	: 	根据开好查余额
  */
 @Service
+@Transactional(rollbackFor = {IOException.class,SQLException.class})
 public class BankBiz {
 
 	@Autowired
@@ -43,17 +48,25 @@ public class BankBiz {
 	}
 
 	// 存取款
-	public void save(int id, double money) {
+	@Transactional(rollbackFor = {BizException.class})
+	public void save(int id, double money) throws BizException {
 		// 省略参数校验
 		adao.update(id, money);
 
-		int i = 1 / 0;
+		//try {
+		if(money > 999) {
+			throw new BizException("存取款金额不能为 999 ！");
+			}
+		/**}catch(BizException e) {
+			throw new DataAccessResour
+		}*/
+		//int i = 1 / 0;
 
 		odao.insert(id, money);
 	}
 
 	// 创发 transfar 天辰
-	public void transfer(int id1, int id2, double money) {
+	public void transfer(int id1, int id2, double money) throws BizException {
 		save(id1, -money);
 		save(id2, money);
 	}
