@@ -44,7 +44,7 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+		<!-- apache 文件上传组件 -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
 			<artifactId>commons-fileupload</artifactId>
