@@ -31,6 +31,7 @@ public class ValidAction {
 		}else {
 			return new Result(1,"注册成功！");
 		}	
+		
 	}
 
 }

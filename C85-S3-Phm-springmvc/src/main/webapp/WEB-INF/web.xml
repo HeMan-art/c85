@@ -31,12 +31,20 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
-	<!-- 
-		SpringMVC解决乱码问题的过滤器
-		request.setCharater...("UTF-8");
-		response.setCharater...("UTF-8");
-		可以解决一半字符集的问题
-	-->
+	<!--  解决Jetty启动后不能修改静态文件问题 
+	<servlet>
+		<servlet-name>default</servlet-name>
+		<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>useFileMappedBuffer</param-name>
+			<param-value> false </param-value>
+		</init-param>
+		<load-on-startup> 0 </load-on-startup>
+	</servlet>-->
+ 
+
+	<!-- SpringMVC解决乱码问题的过滤器 request.setCharater...("UTF-8"); response.setCharater...("UTF-8"); 
+		可以解决一半字符集的问题 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -46,10 +54,12 @@
 		</init-param>
 	</filter>
 	<filter-mapping>
-	
-	<filter-name>CharacterEncodingFilter</filter-name>
+
+		<filter-name>CharacterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
+
 
 
 </web-app> 
