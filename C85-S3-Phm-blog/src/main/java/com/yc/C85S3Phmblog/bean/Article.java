@@ -15,7 +15,7 @@ public class Article implements java.io.Serializable{
 	  private String content;
 	  private String keyWords;
 	  private String descript;
-	  private Integer categoryId;
+	  private Integer categoryid;
 	  private String label;
 	  private String titleImgs;
 	  private String status;
@@ -58,11 +58,11 @@ public class Article implements java.io.Serializable{
 	public void setDescript(String descript) {
 		this.descript = descript;
 	}
-	public Integer getCategoryId() {
-		return categoryId;
+	public Integer getCategoryid() {
+		return categoryid;
 	}
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
+	public void setCategoryid(Integer categoryid) {
+		this.categoryid = categoryid;
 	}
 	public String getLabel() {
 		return label;
@@ -100,9 +100,8 @@ public class Article implements java.io.Serializable{
 	public void setAgreecnt(Integer agreecnt) {
 		this.agreecnt = agreecnt;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
+	  
 	  
 	  
 
