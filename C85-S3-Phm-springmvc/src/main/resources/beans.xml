@@ -3,13 +3,16 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://mybatis.org/schema/mybatis-spring 
+        http://mybatis.org/schema/mybatis-spring.xsd">
 
 	<!-- 手动添加 Spring xml 文件 命名空间 -->
 
@@ -24,8 +27,8 @@
 	<mvc:default-servlet-handler />
 
 	<!-- <mvc:resources location="被映射的路径，工程外的路径C：/d " mapping=""></mvc:resources> -->
-	<mvc:resources location="C:/Users/Administrator/Desktop/lianxi/"
-		mapping="/photo/**">
+	<mvc:resources
+		location="C:/Users/Administrator/Desktop/lianxi/" mapping="/photo/**">
 	</mvc:resources>
 
 	<!-- 配置文件上传解析器 -->
@@ -33,22 +36,37 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<!-- 最大上传文件大小 -->
 		<property name="maxUploadSize" value="1000000" />
-		<!--  编码格式
-		<property name="defaultEncoding" value="utf-8"></property>
-		-->		
+		<!-- 编码格式 <property name="defaultEncoding" value="utf-8"></property> -->
 	</bean>
-	
+
 	<!-- 拦截器定义 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!-- 这里的地址定义 != Servlet 的url定义 -->
-			<mvc:mapping path="/demo/*.do"/>
-			<mvc:mapping path="/demo/reg.html"/>
-			<mvc:exclude-mapping path="/demo/reg.do"/>
+			<mvc:mapping path="/demo/*.do" />
+			<mvc:mapping path="/demo/reg.html" />
+			<mvc:exclude-mapping path="/demo/reg.do" />
 			<bean class="com.yc.springmvc.web.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+	<!-- MyBatis会话工厂bean -->
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!--  -->
+	<mybatis:scan base-package="com.yc.damai.dao" />
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"
+			value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
 
 
 
