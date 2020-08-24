@@ -13,11 +13,11 @@ public class Article implements java.io.Serializable{
 	  private String author;
 	  private String title;
 	  private String content;
-	  private String keyWords;
+	  private String keywords;
 	  private String descript;
 	  private Integer categoryid;
 	  private String label;
-	  private String titleImgs;
+	  private String titleimgs;
 	  private String status;
 	  private Timestamp createtime;
 	  private Integer readcnt;
@@ -46,11 +46,12 @@ public class Article implements java.io.Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getKeyWords() {
-		return keyWords;
+	
+	public String getKeywords() {
+		return keywords;
 	}
-	public void setKeyWords(String keyWords) {
-		this.keyWords = keyWords;
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
 	public String getDescript() {
 		return descript;
@@ -70,11 +71,12 @@ public class Article implements java.io.Serializable{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	public String getTitleImgs() {
-		return titleImgs;
+	
+	public String getTitleimgs() {
+		return titleimgs;
 	}
-	public void setTitleImgs(String titleImgs) {
-		this.titleImgs = titleImgs;
+	public void setTitleimgs(String titleimgs) {
+		this.titleimgs = titleimgs;
 	}
 	public String getStatus() {
 		return status;
