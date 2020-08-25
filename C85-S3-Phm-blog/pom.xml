@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yc</groupId>
-	<artifactId>C85-S3-Ply-blog</artifactId>
+	<artifactId>C85-S3-Phm-blog</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>C85-S3-Ply-blog</name>
+	<name>C85-S3-Phm-blog</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

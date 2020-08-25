@@ -34,10 +34,4 @@ public class IndexAction {
 		
 	}
 	
-	@GetMapping("addArticle")
-	public String addArticle() {
-		return "addArticle";
-	}
-		
-
 }

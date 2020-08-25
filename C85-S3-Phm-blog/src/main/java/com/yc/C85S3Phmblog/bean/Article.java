@@ -1,30 +1,32 @@
 package com.yc.C85S3Phmblog.bean;
 
-import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.validation.constraints.NotEmpty;
 
 public class Article implements java.io.Serializable{
-	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	  private String author;
-	  @NotEmpty
-	  private String title;
-	  private String content;
-	  private String keywords;
-	  private String descript;
-	  private Integer categoryid;
-	  private String label;
-	  private String titleimgs;
-	  private String status;
-	  private Timestamp createtime;
-	  private Integer readcnt;
-	  private Integer agreecnt;
+	private String author;
+	@NotEmpty
+	private String title;
+	@NotEmpty
+	private String content;
+	private String keywords;
+	private String description;
+	@NotEmpty
+	private Integer categoryid;
+	@NotEmpty
+	private String label;
+	private String titleimgs;
+	private String status;
+	private Timestamp createtime;
+	private Integer readcnt;
+	private Integer agreecnt;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -49,18 +51,17 @@ public class Article implements java.io.Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
 	public String getKeywords() {
 		return keywords;
 	}
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
 	}
-	public String getDescript() {
-		return descript;
+	public String getDescription() {
+		return description;
 	}
-	public void setDescript(String descript) {
-		this.descript = descript;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public Integer getCategoryid() {
 		return categoryid;
@@ -74,7 +75,6 @@ public class Article implements java.io.Serializable{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	
 	public String getTitleimgs() {
 		return titleimgs;
 	}
@@ -106,8 +106,4 @@ public class Article implements java.io.Serializable{
 		this.agreecnt = agreecnt;
 	}
 	
-	  
-	  
-	  
-
 }
