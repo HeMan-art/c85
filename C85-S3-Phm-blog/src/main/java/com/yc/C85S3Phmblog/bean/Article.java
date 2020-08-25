@@ -3,6 +3,8 @@ package com.yc.C85S3Phmblog.bean;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Article implements java.io.Serializable{
 	
 	/**
@@ -11,6 +13,7 @@ public class Article implements java.io.Serializable{
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	  private String author;
+	  @NotEmpty
 	  private String title;
 	  private String content;
 	  private String keywords;
