@@ -27,11 +27,11 @@ public class IndexAction {
 		
 	}
 	
-	@GetMapping("article")
+	/**@GetMapping("article")
 	public String article(int id,Model m) {
 		m.addAttribute("article",amapper.selectById(id));
 		return "article";
 		
-	}
+	}*/
 	
 }

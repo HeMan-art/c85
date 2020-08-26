@@ -2,6 +2,7 @@ package com.yc.C85S3Phmblog.bean;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 public class Article implements java.io.Serializable{
@@ -17,7 +18,8 @@ public class Article implements java.io.Serializable{
 	private String content;
 	private String keywords;
 	private String description;
-	@NotEmpty
+	//@NotEmpty
+	@Min(1)
 	private Integer categoryid;
 	@NotEmpty
 	private String label;
