@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 //template
 public class IndexAction {
 	
-	@GetMapping("idex.do")
+	@GetMapping("index.do")
 	public String index() {
 		return "index";
 		

@@ -1,0 +1,9 @@
+server:
+  port : 8001
+
+# 定义当前服务名
+spring:
+   application:
+     
+       name: crbook
+  

@@ -1,0 +1,6 @@
+server:
+  port : 8002
+# 定义当前服务名
+spring:
+   application:
+      name: crindex              
